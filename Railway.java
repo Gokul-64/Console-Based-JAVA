@@ -51,7 +51,7 @@ public class Railway {
 		  do
 		  {
 			  System.out.println("--------------------------------WELCOME TO RAILWAY RESERVATION--------------------------------");
-			  System.out.print("1.Display Train Info\'s\n2.Book a Train\nPlease Enter Your Choice:");
+			  System.out.print("1.Display Train Info\'s\n2.Book a Train\n3.Add Trains\n4.Booked Passengers\nPlease Enter Your Choice:");
 			  int choice=s.nextInt();
 			  switch(choice)
 			  {
@@ -87,6 +87,39 @@ public class Railway {
 				  
 				  break;
 			  }
+			  case 3:
+			  {
+				  System.out.println("Enter the Train Number: ");
+				  int tn=s.nextInt();
+				  System.out.println("Enter the Train Name: ");
+				  String tname=s.next();
+				  System.out.println("Enter the Seat Type: ");
+				  s.nextLine();
+				  String sty=s.nextLine();
+				  System.out.println("Enter the Total Seats: ");
+				  int ts=s.nextInt();
+				  if(!l.contains(new Train(tn,tname,sty,ts)))
+				  {
+					  l.add(new Train(tn,tname,sty,ts));
+					  System.out.println("Train Added SuccessFully..");
+				  }
+				  else
+					  System.out.println("Train Already exists!");
+				  break;
+			  }
+			  case 4:
+			  {
+				  if(b.size()==0)
+					  System.out.println("No Passengers Book Yet!");
+				  else
+				  {
+					  for(Book bk: b)
+					  {
+						  bk.show();
+					  }  
+				  }
+				  break;
+			   }
 			  default:
 			  {
 				  System.out.println("Invalid Choice!");
